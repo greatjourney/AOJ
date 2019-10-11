@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <unordered_set>
 using namespace std;
 
 #define REP(i, n) for(int i = 0; i < n; i++)
@@ -13,37 +14,32 @@ using namespace std;
 #define IN  int n;  cin >> n;
 #define VI  vector<int> 
 #define SS stringstream ss;
+#define SOLVE cout << solve() << endl;
 
-int n,m;
-pair<int,int> a[100000+10];
+string s;
+vector<string> a,b,cauchy_distribution;
+
 
 int solve() {
+    typedef unordered_set<string> set_t;
+    set_t A;
     int cnt = 0;
-    int i = 0;
-    while(i < n) {
-        if(a[i].second < m) m -= a[i].second;
-        else {
-            cnt += a[i].first * (a[i].second - m);
-            break;
-        }
-        i++;
+    REP(i,s.size()) {
+        REP(j,i) a.push_back(s[j]);
+        FOR(j,i,s.size()) b.push_back(s[j]);
     }
-    for(int j = i+1; j < n; j++) {
-        cnt += a[j].first * a[j].second;
-    }
-    return cnt;
+    
 }
 
 int main() {
-    while(cin >> n >> m && n > 0) {
-        REP(i,n) cin >> a[i].second >> a[i].first;
-        sort(a, a+n);
-        reverse(a, a+n);
-        cout << solve() << endl;
+    int n;
+    cin >> n;
+    REP(i,n) {
+        cin >> s;
     }
 }
 
 # if 0 
-計算量のオーダーは、sortにかかるO(NlogN)。solve()のwhileループは
-高々n回でO(N)なので無視できる。
+
+
 #endif

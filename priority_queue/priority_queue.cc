@@ -20,10 +20,21 @@ int solve() {
 }
 
 int main() {
-     
+    string cmd; 
+    int n; 
+    priority_queue<int> Q;
+    while (cin >> cmd && cmd != "end") {
+        if (cmd == "insert") {
+            cin >> n;
+            Q.push(n);
+        }
+       else if (cmd == "extract") {
+           cout << Q.top() << endl;
+           Q.pop();
+       }
+    }
 }
 
 # if 0 
-
 
 #endif

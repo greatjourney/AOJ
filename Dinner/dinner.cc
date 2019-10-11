@@ -15,15 +15,20 @@ using namespace std;
 #define SS stringstream ss;
 #define SOLVE cout << solve() << endl;
 
+int n,p,q ,c[10000+10];
+
 int solve() {
     int cnt = 0;
 }
 
 int main() {
-     
+    cin >> n >> p >> q;
+    REP(i,n) cin >> c[i];
+    SOLVE
 }
 
 # if 0 
 
 
 #endif
+

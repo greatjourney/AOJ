@@ -16,11 +16,36 @@ using namespace std;
 #define SOLVE cout << solve() << endl;
 
 int solve() {
-    int cnt = 0;
 }
 
 int main() {
-     
+    queue<int> a;
+    queue<string> b;
+    int n,q;
+    cin >> n >> q;
+    int p;
+    int cnt = 0;
+    string s;
+    REP(i,n) { 
+        cin >> s >> p;
+        a.push(p);
+        b.push(s);
+    }
+    while (! a.empty()) {
+        p = a.front();
+        s = b.front();
+        if (p <= q) {
+            cnt += p;
+            cout << s << " " << cnt << endl;
+            a.pop(); b.pop();
+        }
+        else {
+            cnt += q;
+            a.pop(); b.pop();
+            a.push(p - q);
+            b.push(s);
+        }
+    }
 }
 
 # if 0 

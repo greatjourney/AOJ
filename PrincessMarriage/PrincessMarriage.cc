@@ -13,14 +13,34 @@ using namespace std;
 #define IN  int n;  cin >> n;
 #define VI  vector<int> 
 #define SS stringstream ss;
-#define SOLVE cout << solve() << endl;
+
+int n,m;
+pair<int,int> a[100000+10];
 
 int solve() {
     int cnt = 0;
+    int i = 0;
+    while(i < n) {
+        if(a[i].second < m) m -= a[i].second;
+        else {
+            cnt += a[i].first * (a[i].second - m);
+            break;
+        }
+        i++;
+    }
+    for(int j = i+1; j < n; j++) {
+        cnt += a[j].first * a[j].second;
+    }
+    return cnt;
 }
 
 int main() {
-     
+    while(cin >> n >> m && n > 0) {
+        REP(i,n) cin >> a[i].second >> a[i].first;
+        sort(a, a+n);
+        reverse(a, a+n);
+        cout << solve() << endl;
+    }
 }
 
 # if 0 

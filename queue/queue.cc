@@ -49,6 +49,5 @@ int main() {
 }
 
 # if 0 
-
-
+所要時間10分
 #endif
